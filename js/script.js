@@ -76,6 +76,7 @@ words.forEach((word) => {
     let span = document.createElement("span");
     span.textContent = letter === " " ? "\u00A0" : letter;
     span.className = "letter";
+    span.style.color = "#0081FB"; // Voeg deze regel toe om de kleur in te stellen
     word.append(span);
   });
 });
