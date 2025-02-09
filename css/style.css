@@ -35,7 +35,7 @@ body {
 
 .introduction-section {
     display: flex;
-    width: 30%;
+    width: 40%;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 150px; /* Verander deze waarde om de sectie meer naar links te verplaatsen */
@@ -45,7 +45,7 @@ body {
 .introduction-name,
 .introduction-role {
     font-family: 'Inter', Arial, sans-serif;
-    font-size: 42px;
+    font-size: 56px;
     font-weight: 600;
     color: white;
     transition: color 0.5s;
@@ -55,7 +55,7 @@ body {
 }
 
 .introduction-role {
-    font-size: 42px;
+    font-size: 56px;
     margin-left: 50px;
     font-weight: 600;
 }
@@ -319,7 +319,7 @@ body.dark-mode .footer-section {
     color: #8D8D8D;
 }
 .social-media-bar {
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,8 +396,17 @@ body.dark-mode .footer-section {
 
 .about-header {
     font-family: 'Inter', Arial, sans-serif;
-    font-size: 42px;
+    font-size: 56px;
+    font-weight: 700;
     margin: 0;
-    padding: 20px;
+    padding-top: 40px;
+    padding-left: 40px;
     color: black;
+}
+
+.about-text {
+    padding-top: 20px;
+    padding-left: 40px;
+    font-size: 24px;
+    font-weight: 400;
 }
