@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* Zorg ervoor dat dit overeenkomt met de rest van de pagina */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -20,8 +20,8 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
+    margin: 0;
+    padding: 0;
 }
 
 .introduction,
@@ -81,7 +81,6 @@ body {
     }
 }
 
-/* Additional media query for iPhone 14 */
 @media (max-width: 600px) {
     .introduction-name {
         font-size: 24px;
@@ -196,8 +195,8 @@ body {
 .settings-button:hover::after {
     content: "";
     display: block;
-    padding-bottom: 50px; /* Adjust as needed */
-    transition: padding-bottom 0.3s ease 1s; /* Delay of 1 second */
+    padding-bottom: 50px;
+    transition: padding-bottom 0.3s ease 1s;
 }
 .settings-dropdown {
     display: none;
@@ -356,7 +355,7 @@ body.dark-mode .footer-section {
 .social-media-text {
     display: none;
     position: absolute;
-    bottom: -45px; /* Adjusted to make space for the arrow */
+    bottom: -45px;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
@@ -365,21 +364,21 @@ body.dark-mode .footer-section {
     border-radius: 5px;
     font-size: 12px;
     white-space: nowrap;
-    transition: transform 0.3s ease; /* Add transition for smooth movement */
+    transition: transform 0.3s ease;
 }
 
 .social-media-text::after {
     content: '';
     position: absolute;
-    bottom: 100%; /* Position the arrow at the top of the text box */
+    bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent black transparent; /* Arrow pointing up */
+    border-color: transparent transparent black transparent;
 }
 
 .social-media-circle:hover .social-media-text {
     display: block;
-    transform: translateX(-50%) translateY(-5px); /* Move the text box up slightly */
+    transform: translateX(-50%) translateY(-5px);
 }
