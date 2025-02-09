@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Zorg ervoor dat dit overeenkomt met de rest van de pagina */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.introduction {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5F5F7;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.introduction,
+.experience,
+.introduction-name,
+.introduction-role,
+.rotating-text,
+.footer-section {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.introduction-section {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 250px;
+    padding-bottom: 175px;
+}
+
+.introduction-name,
+.introduction-role {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #8D8D8D;
+    transition: color 0.5s;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.introduction-role {
+    font-size: 42px;
+    margin-left: 50px;
+    font-weight: 600;
+}
+
+.introduction-name {
+    margin-bottom: 0;
+}
+
+/* Responsive Section Introduction*/
+@media (max-width: 770px), (max-height: 500px) {
+    .introduction-section {
+        padding-left: 10px;
+        margin-left: 40px;
+        padding-top: 10px;
+        width: 100vw;
+        text-align: left;
+    }
+}
+
+@media (max-width: 559px), (max-height: 250px) {
+    .introduction-section {
+        margin-top: 150px;
+    }
+}
+
+/* Additional media query for iPhone 14 */
+@media (max-width: 600px) {
+    .introduction-name {
+        font-size: 24px;
+    }
+
+    .introduction-role {
+        font-size: 24px;
+    }
+
+    .rotating-text {
+        font-size: 18px;
+    }
+
+    .footer-section h1 {
+        font-size: 18px;
+    }
+}
+
+.rotating-text {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: white;
+    margin-top: 0;
+}
+  
+.rotating-text p {
+    display: inline-flex;
+    margin: 0;
+    vertical-align: top;
+}
+
+.rotating-text p .word {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+}
+
+.rotating-text p .word .letter {
+    transform-origin: center center 25px;
+}
+
+.rotating-text p .word .letter.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+
+.rotating-text p .word .letter.in {
+    transition: 0.38s ease;
+}
+
+.rotating-text p .word .letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.emoji {
+    display: inline-block;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.emoji::before {
+    content: "👋";
+    display: inline-block;
+    backface-visibility: hidden;
+}
+
+.emoji::after {
+    content: "🇳🇱";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.emoji:hover {
+    transform: rotateY(180deg);
+}
+
+.introduction-name.visible,
+.introduction-role.visible {
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+.settings {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.settings-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #2196F3;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: padding 0.3s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5px;
+    width: auto;
+}
+
+.settings-button:hover {
+    padding-right: 75px;
+}
+
+.settings-button:hover::after {
+    content: "";
+    display: block;
+    padding-bottom: 50px; /* Adjust as needed */
+    transition: padding-bottom 0.3s ease 1s; /* Delay of 1 second */
+}
+.settings-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.settings-button:hover + .settings-dropdown,
+.settings-dropdown:hover {
+    display: block;
+}
+
+.toggle-container, .language-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+body.dark-mode .settings-dropdown {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .slider {
+    background-color: #555;
+}
+
+body.dark-mode .slider:before {
+    background-color: #fff;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .introduction {
+    background-color: #121212;
+}
+
+body.dark-mode .introduction-name,
+body.dark-mode .introduction-role,
+body.dark-mode .rotating-text {
+    color: #ffffff;
+}
+
+body.dark-mode .footer-section {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.footer-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #F5F5F7;
+}
+
+.footer-section h1 {
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #8D8D8D;
+}
+.social-media-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-media-circle {
+    width: 45px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-media-circle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon {
+    margin-top: 2px;
+    width: 27px;
+    height: 27px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-media-text {
+    display: none;
+    position: absolute;
+    bottom: -45px; /* Adjusted to make space for the arrow */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: transform 0.3s ease; /* Add transition for smooth movement */
+}
+
+.social-media-text::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position the arrow at the top of the text box */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent; /* Arrow pointing up */
+}
+
+.social-media-circle:hover .social-media-text {
+    display: block;
+    transform: translateX(-50%) translateY(-5px); /* Move the text box up slightly */
+}
