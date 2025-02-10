@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const elementsToObserve = [
     document.querySelector('.introduction-name'),
     document.querySelector('.introduction-role'),
-    document.querySelector('.rotating-text')
+    document.querySelector('.rotating-text'),
+    document.querySelector('.project-card'),
   ];
 
   const observer = new IntersectionObserver((entries) => {
@@ -64,6 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   highlightNav();
   window.addEventListener('scroll', highlightNav);
+
+  const projectCards = document.querySelectorAll('.project-card');
+
+  projectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      setTimeout(() => {
+        card.classList.add('active');
+      }, 500); // Delay van 500ms
+    });
+  });
 });
 
 "use strict";

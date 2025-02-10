@@ -11,10 +11,11 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-x: hidden;
+    
 }
 
 .introduction {
@@ -74,7 +75,7 @@ body {
         padding-left: 10px;
         margin-left: 40px;
         padding-top: 10px;
-        width: 100vw;
+        width: 100%;
         text-align: left;
     }
 }
@@ -85,23 +86,35 @@ body {
     }
 }
 
-@media (max-width: 600px) {
-    .introduction-name {
-        font-size: 24px;
-    }
-
+@media (max-width: 928px), (max-height: 590px) {
+    .introduction-name,
     .introduction-role {
-        font-size: 24px;
-    }
-
-    .rotating-text {
-        font-size: 18px;
-    }
-
-    .footer-section h1 {
-        font-size: 18px;
+        font-size: 40px;
     }
 }
+
+@media (max-width: 700px) {
+    .introduction-name,
+    .introduction-role {
+        font-size: 30px;
+    }
+    .introduction-section {
+        padding-top: 100px;
+    }
+}
+
+@media (max-height: 350px) {
+    .introduction-section {
+        padding-top: 50px;
+    }
+}
+
+@media (max-height: 160px), (max-width: 600px) {
+    .introduction-section {
+        padding-top: 90px;
+    }
+}
+
 
 .rotating-text {
     font-family: 'Inter', Arial, sans-serif;
@@ -172,7 +185,7 @@ body {
     transform: translateX(0); 
 }
 
-.settings {
+/* .settings {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -217,7 +230,7 @@ body {
 .settings-button:hover + .settings-dropdown,
 .settings-dropdown:hover {
     display: block;
-}
+} */
 
 .toggle-container, .language-container {
     display: flex;
@@ -405,7 +418,7 @@ body.dark-mode .footer-section {
     font-weight: 700;
     margin: 0;
     padding-top: 40px;
-    padding-left: 40px;
+    padding-left: 70px;
     color: black;
 }
 
@@ -413,30 +426,75 @@ body.dark-mode .footer-section {
     font: 'Inter', Arial, sans-serif;
     color: #898989;
     padding-top: 20px;
-    padding-left: 40px;
+    padding-left: 70px;
     font-size: 28px;
     font-weight: 400;
 }
 
+@media (max-width: 850px), (max-height: 1200px) {
+    .about-me-section {
+        padding-left: 20px;
+        padding-bottom: 100px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px), (max-height: 500px) {
+    .about-text {
+        font-size: 18px;
+        width: 100%;
+    }
+    .about-me-section {
+        padding-left: 20px;
+        padding-bottom: 100px;
+    }
+    
+}
+
 /* Project Section */
-.projects {
+.project {
     height: 100vh;
-    width: 100%;
     background-color: #F5F5F7;
-    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.projects-section {
-    padding-top: 40px;
-    padding-left: 90px;
+.project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.projects-header {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 56px;
-    font-weight: 700;
-    margin: 0;
-    padding-top: 40px;
-    padding-left: 40px;
-    color: black;
+.project-title-section {
+    margin-top: 75px;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    color: #1C1C1E;
+}
+
+.project-card-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-card {
+    height: 750px;
+    width: 1250px;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    opacity: 0;
+    transform: perspective(800px) rotateX(45deg);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg);
 }
