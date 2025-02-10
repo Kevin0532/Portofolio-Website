@@ -3,11 +3,15 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 200vh;
+    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,7 +42,7 @@ body {
     width: 40%;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 90px; /* Verander deze waarde om de sectie meer naar links te verplaatsen */
+    padding-left: 120px; /* Verander deze waarde om de sectie meer naar links te verplaatsen */
     padding-bottom: 150px;
 }
 
@@ -391,7 +395,8 @@ body.dark-mode .footer-section {
 }
 
 .about-me-section {
-    padding: 50px;
+    padding-top: 40px;
+    padding-left: 90px;
 }
 
 .about-header {
@@ -405,8 +410,33 @@ body.dark-mode .footer-section {
 }
 
 .about-text {
+    font: 'Inter', Arial, sans-serif;
+    color: #898989;
     padding-top: 20px;
     padding-left: 40px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 400;
+}
+
+/* Project Section */
+.projects {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5F5F7;
+    color: black;
+}
+
+.projects-section {
+    padding-top: 40px;
+    padding-left: 90px;
+}
+
+.projects-header {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0;
+    padding-top: 40px;
+    padding-left: 40px;
+    color: black;
 }
