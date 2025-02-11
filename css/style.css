@@ -134,9 +134,11 @@ body {
     position: absolute;
     display: flex;
     opacity: 0;
+    white-space: nowrap; /* Voeg deze regel toe */
 }
 
 .rotating-text p .word .letter {
+    display: inline-block; /* Voeg deze regel toe */
     transform-origin: center center 25px;
 }
 
